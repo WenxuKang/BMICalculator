@@ -86,6 +86,7 @@
             this.Imperial.TabStop = true;
             this.Imperial.Text = "Imperial";
             this.Imperial.UseVisualStyleBackColor = true;
+            this.Imperial.CheckedChanged += new System.EventHandler(this.Imperial_CheckedChanged);
             // 
             // Metric
             // 
@@ -97,6 +98,7 @@
             this.Metric.TabStop = true;
             this.Metric.Text = "Metric";
             this.Metric.UseVisualStyleBackColor = true;
+            this.Metric.CheckedChanged += new System.EventHandler(this.Metric_CheckedChanged);
             // 
             // text1
             // 
@@ -128,6 +130,7 @@
             this.Calculate.TabIndex = 2;
             this.Calculate.Text = "Calculate BMI";
             this.Calculate.UseVisualStyleBackColor = true;
+            this.Calculate.Click += new System.EventHandler(this.Calculate_Click);
             // 
             // BMI
             // 
