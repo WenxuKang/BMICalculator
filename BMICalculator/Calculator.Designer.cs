@@ -37,6 +37,7 @@
             this.text2 = new System.Windows.Forms.TextBox();
             this.text3 = new System.Windows.Forms.TextBox();
             this.Calculate = new System.Windows.Forms.Button();
+            this.resetButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -116,7 +117,7 @@
             // 
             // text3
             // 
-            this.text3.Location = new System.Drawing.Point(66, 292);
+            this.text3.Location = new System.Drawing.Point(66, 271);
             this.text3.Multiline = true;
             this.text3.Name = "text3";
             this.text3.Size = new System.Drawing.Size(175, 121);
@@ -124,19 +125,30 @@
             // 
             // Calculate
             // 
-            this.Calculate.Location = new System.Drawing.Point(66, 192);
+            this.Calculate.Location = new System.Drawing.Point(21, 192);
             this.Calculate.Name = "Calculate";
-            this.Calculate.Size = new System.Drawing.Size(175, 73);
+            this.Calculate.Size = new System.Drawing.Size(140, 73);
             this.Calculate.TabIndex = 2;
             this.Calculate.Text = "Calculate BMI";
             this.Calculate.UseVisualStyleBackColor = true;
             this.Calculate.Click += new System.EventHandler(this.Calculate_Click);
+            // 
+            // resetButton
+            // 
+            this.resetButton.Location = new System.Drawing.Point(180, 192);
+            this.resetButton.Name = "resetButton";
+            this.resetButton.Size = new System.Drawing.Size(112, 73);
+            this.resetButton.TabIndex = 3;
+            this.resetButton.Text = "Reset";
+            this.resetButton.UseVisualStyleBackColor = true;
+            this.resetButton.Click += new System.EventHandler(this.resetButton_Click);
             // 
             // BMI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(304, 441);
+            this.Controls.Add(this.resetButton);
             this.Controls.Add(this.Calculate);
             this.Controls.Add(this.text3);
             this.Controls.Add(this.tableLayoutPanel1);
@@ -165,6 +177,7 @@
         private System.Windows.Forms.TextBox text2;
         private System.Windows.Forms.TextBox text3;
         private System.Windows.Forms.Button Calculate;
+        private System.Windows.Forms.Button resetButton;
     }
 }
 

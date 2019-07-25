@@ -12,6 +12,24 @@ namespace BMICalculator
 {
     public partial class BMI : Form
     {
+        public void reset()
+        {
+            foreach (Control x in this.Controls)
+            {
+                if (x is TextBox)
+                {
+                    ((TextBox)x).Clear();
+                }
+            }
+
+            foreach (Control y in this.Controls)
+            {
+                if (y is CheckBox)
+                {
+                    ((CheckBox)y).Checked = false;
+                }
+            }
+        }
         public BMI()
         {
             InitializeComponent();
@@ -61,6 +79,12 @@ namespace BMICalculator
             {
                 text3.Text = "your BMI:" + finalBMI + "  You are Obese!";
             }
+        }
+
+
+        private void resetButton_Click(object sender, EventArgs e)
+        {
+            reset();
         }
     }
 }
