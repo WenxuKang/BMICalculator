@@ -12,8 +12,12 @@ namespace BMICalculator
 {
     public partial class BMI : Form
     {
+        /// <summary>
+        /// Reset button function
+        /// </summary>
         public void reset()
         {
+            
             foreach (Control x in this.Controls)
             {
                 if (x is TextBox)
@@ -35,6 +39,12 @@ namespace BMICalculator
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Tell user they choose Metric or Imperial
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+
         private void Imperial_CheckedChanged(object sender, EventArgs e)
         {
             text1.Text = "Inches";
@@ -46,7 +56,11 @@ namespace BMICalculator
             text1.Text = "Metres";
             text2.Text = "Kg";
         }
-
+        /// <summary>
+        /// Fomular for calculate BMI and display the results.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Calculate_Click(object sender, EventArgs e)
         {
             decimal myHeight;

@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace BMICalculator
 {
-    static class Program
+    static class BMICalculator
     {
         /// <summary>
         /// The main entry point for the application.

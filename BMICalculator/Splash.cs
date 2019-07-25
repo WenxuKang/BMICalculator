@@ -12,6 +12,10 @@ namespace BMICalculator
 {
     public partial class Splash : Form
     {
+
+        /// <summary>
+        /// This code for build the splash timer for 3 seconds and turn to Calculator
+        /// </summary>
         private Timer time;
 
         public Splash()
