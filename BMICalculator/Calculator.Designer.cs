@@ -29,18 +29,19 @@
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.WeightUnit = new System.Windows.Forms.Label();
             this.Height = new System.Windows.Forms.Label();
-            this.HeightUnit = new System.Windows.Forms.Label();
             this.Weight = new System.Windows.Forms.Label();
             this.Imperial = new System.Windows.Forms.RadioButton();
+            this.Metric = new System.Windows.Forms.RadioButton();
+            this.HeightUnit = new System.Windows.Forms.Label();
             this.text1 = new System.Windows.Forms.TextBox();
             this.text2 = new System.Windows.Forms.TextBox();
-            this.Metric = new System.Windows.Forms.RadioButton();
+            this.WeightUnit = new System.Windows.Forms.Label();
             this.resultText = new System.Windows.Forms.TextBox();
             this.CalculateButton = new System.Windows.Forms.Button();
             this.ResetButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.DecimalButton = new System.Windows.Forms.Button();
             this.ThreeButton = new System.Windows.Forms.Button();
             this.TwoButton = new System.Windows.Forms.Button();
             this.OneButton = new System.Windows.Forms.Button();
@@ -50,10 +51,9 @@
             this.NineButton = new System.Windows.Forms.Button();
             this.EightButton = new System.Windows.Forms.Button();
             this.SevenButton = new System.Windows.Forms.Button();
-            this.ZeroButton = new System.Windows.Forms.Button();
             this.DeleteButton = new System.Windows.Forms.Button();
+            this.ZeroButton = new System.Windows.Forms.Button();
             this.ProgressBar = new System.Windows.Forms.ProgressBar();
-            this.DecimalButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
@@ -91,21 +91,6 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(305, 152);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
-            // WeightUnit
-            // 
-            this.WeightUnit.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.WeightUnit.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.tableLayoutPanel1.SetColumnSpan(this.WeightUnit, 3);
-            this.WeightUnit.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.WeightUnit.Location = new System.Drawing.Point(228, 100);
-            this.WeightUnit.Name = "WeightUnit";
-            this.WeightUnit.Size = new System.Drawing.Size(74, 52);
-            this.WeightUnit.TabIndex = 6;
-            this.WeightUnit.Text = "WeightUnit";
-            this.WeightUnit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // Height
             // 
             this.Height.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -118,21 +103,6 @@
             this.Height.TabIndex = 0;
             this.Height.Text = "My Height";
             this.Height.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // HeightUnit
-            // 
-            this.HeightUnit.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.HeightUnit.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.tableLayoutPanel1.SetColumnSpan(this.HeightUnit, 3);
-            this.HeightUnit.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.HeightUnit.Location = new System.Drawing.Point(228, 50);
-            this.HeightUnit.Name = "HeightUnit";
-            this.HeightUnit.Size = new System.Drawing.Size(74, 50);
-            this.HeightUnit.TabIndex = 5;
-            this.HeightUnit.Text = "HeightUnit";
-            this.HeightUnit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Weight
             // 
@@ -163,6 +133,36 @@
             this.Imperial.UseVisualStyleBackColor = true;
             this.Imperial.CheckedChanged += new System.EventHandler(this.Imperial_CheckedChanged);
             // 
+            // Metric
+            // 
+            this.Metric.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel1.SetColumnSpan(this.Metric, 6);
+            this.Metric.Location = new System.Drawing.Point(153, 3);
+            this.Metric.Name = "Metric";
+            this.Metric.Size = new System.Drawing.Size(149, 44);
+            this.Metric.TabIndex = 3;
+            this.Metric.TabStop = true;
+            this.Metric.Text = "Metric";
+            this.Metric.UseVisualStyleBackColor = true;
+            this.Metric.CheckedChanged += new System.EventHandler(this.Metric_CheckedChanged);
+            // 
+            // HeightUnit
+            // 
+            this.HeightUnit.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.HeightUnit.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.tableLayoutPanel1.SetColumnSpan(this.HeightUnit, 3);
+            this.HeightUnit.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.HeightUnit.Location = new System.Drawing.Point(228, 50);
+            this.HeightUnit.Name = "HeightUnit";
+            this.HeightUnit.Size = new System.Drawing.Size(74, 50);
+            this.HeightUnit.TabIndex = 5;
+            this.HeightUnit.Text = "HeightUnit";
+            this.HeightUnit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // text1
             // 
             this.text1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -189,20 +189,20 @@
             this.text2.TabIndex = 5;
             this.text2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.WeightDataMouseDown);
             // 
-            // Metric
+            // WeightUnit
             // 
-            this.Metric.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.WeightUnit.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel1.SetColumnSpan(this.Metric, 6);
-            this.Metric.Location = new System.Drawing.Point(153, 3);
-            this.Metric.Name = "Metric";
-            this.Metric.Size = new System.Drawing.Size(149, 44);
-            this.Metric.TabIndex = 3;
-            this.Metric.TabStop = true;
-            this.Metric.Text = "Metric";
-            this.Metric.UseVisualStyleBackColor = true;
-            this.Metric.CheckedChanged += new System.EventHandler(this.Metric_CheckedChanged);
+            this.WeightUnit.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.tableLayoutPanel1.SetColumnSpan(this.WeightUnit, 3);
+            this.WeightUnit.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.WeightUnit.Location = new System.Drawing.Point(228, 100);
+            this.WeightUnit.Name = "WeightUnit";
+            this.WeightUnit.Size = new System.Drawing.Size(74, 52);
+            this.WeightUnit.TabIndex = 6;
+            this.WeightUnit.Text = "WeightUnit";
+            this.WeightUnit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // resultText
             // 
@@ -287,6 +287,19 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(294, 208);
             this.tableLayoutPanel2.TabIndex = 4;
+            // 
+            // DecimalButton
+            // 
+            this.DecimalButton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.DecimalButton.Location = new System.Drawing.Point(3, 159);
+            this.DecimalButton.Name = "DecimalButton";
+            this.DecimalButton.Size = new System.Drawing.Size(30, 46);
+            this.DecimalButton.TabIndex = 11;
+            this.DecimalButton.Tag = "decimal";
+            this.DecimalButton.Text = ".";
+            this.DecimalButton.UseVisualStyleBackColor = true;
             // 
             // ThreeButton
             // 
@@ -414,20 +427,6 @@
             this.SevenButton.UseVisualStyleBackColor = true;
             this.SevenButton.Click += new System.EventHandler(this.KeyboardButtonClick);
             // 
-            // ZeroButton
-            // 
-            this.ZeroButton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.ZeroButton.Location = new System.Drawing.Point(39, 159);
-            this.ZeroButton.Name = "ZeroButton";
-            this.ZeroButton.Size = new System.Drawing.Size(30, 46);
-            this.ZeroButton.TabIndex = 0;
-            this.ZeroButton.Tag = "0";
-            this.ZeroButton.Text = "0";
-            this.ZeroButton.UseVisualStyleBackColor = true;
-            this.ZeroButton.Click += new System.EventHandler(this.KeyboardButtonClick);
-            // 
             // DeleteButton
             // 
             this.DeleteButton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -442,37 +441,35 @@
             this.DeleteButton.UseVisualStyleBackColor = true;
             this.DeleteButton.Click += new System.EventHandler(this.KeyboardButtonClick);
             // 
+            // ZeroButton
+            // 
+            this.ZeroButton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ZeroButton.Location = new System.Drawing.Point(39, 159);
+            this.ZeroButton.Name = "ZeroButton";
+            this.ZeroButton.Size = new System.Drawing.Size(30, 46);
+            this.ZeroButton.TabIndex = 0;
+            this.ZeroButton.Tag = "0";
+            this.ZeroButton.Text = "0";
+            this.ZeroButton.UseVisualStyleBackColor = true;
+            this.ZeroButton.Click += new System.EventHandler(this.KeyboardButtonClick);
+            // 
             // ProgressBar
             // 
-            this.ProgressBar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.ProgressBar.Location = new System.Drawing.Point(112, 170);
+            this.ProgressBar.Location = new System.Drawing.Point(76, 170);
             this.ProgressBar.Name = "ProgressBar";
-            this.ProgressBar.Size = new System.Drawing.Size(180, 48);
+            this.ProgressBar.Size = new System.Drawing.Size(202, 43);
             this.ProgressBar.TabIndex = 5;
-            // 
-            // DecimalButton
-            // 
-            this.DecimalButton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.DecimalButton.Location = new System.Drawing.Point(3, 159);
-            this.DecimalButton.Name = "DecimalButton";
-            this.DecimalButton.Size = new System.Drawing.Size(30, 46);
-            this.DecimalButton.TabIndex = 11;
-            this.DecimalButton.Tag = "decimal";
-            this.DecimalButton.Text = ".";
-            this.DecimalButton.UseVisualStyleBackColor = true;
             // 
             // BMI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(304, 441);
+            this.Controls.Add(this.ProgressBar);
             this.Controls.Add(this.tableLayoutPanel2);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Controls.Add(this.ProgressBar);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
@@ -502,7 +499,6 @@
         private System.Windows.Forms.Button CalculateButton;
         private System.Windows.Forms.Button ResetButton;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.ProgressBar ProgressBar;
         private System.Windows.Forms.Button ThreeButton;
         private System.Windows.Forms.Button TwoButton;
         private System.Windows.Forms.Button OneButton;
@@ -517,6 +513,7 @@
         private System.Windows.Forms.Label HeightUnit;
         private System.Windows.Forms.Label WeightUnit;
         private System.Windows.Forms.Button DecimalButton;
+        private System.Windows.Forms.ProgressBar ProgressBar;
     }
 }
 

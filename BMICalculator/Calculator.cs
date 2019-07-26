@@ -97,80 +97,23 @@ namespace BMICalculator
                     switch (tag)
                     {
                         case "calculate":
-                            try
-                            {
-                                heightValue = float.Parse(text1.Text);
-                                weightValue = float.Parse(text2.Text);
-
-                                if (Imperial.Checked)
-                                {
-                                    finalBMI = weightValue * 703 / (heightValue * heightValue);
-
-                                }
-                                else if (Metric.Checked)
-                                {
-                                    finalBMI = weightValue / (heightValue * heightValue);
-                                }
-                                if (finalBMI < 18.5)
-                                {
-
-                                    ProgressBar.BackColor = Color.Yellow;
-                                    resultText.Text = $"{finalBMI:f2}  You are Underweight!";
-                                }
-                                else if (finalBMI >= 18.5 && finalBMI <= 24.9)
-                                {
-                                    ProgressBar.BackColor = Color.Green;
-                                    resultText.Text = $"{finalBMI:f2}  You are Normal!";
-                                }
-                                else if (finalBMI >= 25 && finalBMI <= 29.9)
-                                {
-                                    ProgressBar.BackColor = Color.Orange;
-                                    resultText.Text = $"{finalBMI:f2}  You are Overweight!";
-                                }
-                                else if (finalBMI >= 30)
-                                {
-                                    ProgressBar.BackColor = Color.Red;
-                                    resultText.Text = $"{finalBMI:f2}  You are Obese!";
-                                }
-
-
-                            }
-                            catch
-                            {
-                               
-                                resultText.Text = "Error Enter!!!";
-                            }
-
+                            CalculateButtonClick();
 
                             break;
 
                         case "back":
-                            var lastChar = outputString.Substring(outputString.Length - 1);
-                            if (lastChar == ".")
-                            {
-                                decimalExists = false;
-                            }
-                            outputString = outputString.Remove(outputString.Length - 1);
-                            if (outputString.Length == 0)
-                            {
-                                outputString = "0";
-                            }
-                            enterDatatoBox.Text = outputString;
+                            BackButtonClick();
                             break;
 
 
 
                         case "decimal":
-                            if (!decimalExists)
-                            {
-                                outputString += ".";
-                                decimalExists = true;
-                            }
-                                break;
+                            DecimalButtonClick();
+                            break;
 
 
                         case "reset":
-
+                            ResetButtonClick();
                             break;
                     }
 
@@ -181,6 +124,89 @@ namespace BMICalculator
             {
                 resultText.Text = "";
 
+            }
+        }
+
+        private void ResetButtonClick()
+        {
+            text1.Clear();
+            text2.Clear();
+            resultText.Clear();
+            outputString = "0";
+            heightValue = 0.0f;
+            weightValue = 0.0f;
+            decimalExists = false;
+        }
+
+        private void DecimalButtonClick()
+        {
+            if (!decimalExists)
+            {
+                outputString += ".";
+                decimalExists = true;
+            }
+        }
+
+        private void BackButtonClick()
+        {
+            var lastChar = outputString.Substring(outputString.Length - 1);
+            if (lastChar == ".")
+            {
+                decimalExists = false;
+            }
+            outputString = outputString.Remove(outputString.Length - 1);
+            if (outputString.Length == 0)
+            {
+                outputString = "0";
+            }
+            enterDatatoBox.Text = outputString;
+        }
+
+        private void CalculateButtonClick()
+        {
+            try
+            {
+                heightValue = float.Parse(text1.Text);
+                weightValue = float.Parse(text2.Text);
+
+                if (Imperial.Checked)
+                {
+                    finalBMI = weightValue * 703 / (heightValue * heightValue);
+
+                }
+                else if (Metric.Checked)
+                {
+                    finalBMI = weightValue / (heightValue * heightValue);
+                }
+                ProgressBar.Value = (int)finalBMI;
+                if (finalBMI < 18.5)
+                {
+
+                    ProgressBar.BackColor = Color.Yellow;
+                    resultText.Text = $"{finalBMI:f2}  You are Underweight!";
+                }
+                else if (finalBMI >= 18.5 && finalBMI <= 24.9)
+                {
+                    ProgressBar.BackColor = Color.Green;
+                    resultText.Text = $"{finalBMI:f2}  You are Normal!";
+                }
+                else if (finalBMI >= 25 && finalBMI <= 29.9)
+                {
+                    ProgressBar.BackColor = Color.Orange;
+                    resultText.Text = $"{finalBMI:f2}  You are Overweight!";
+                }
+                else if (finalBMI >= 30)
+                {
+                    ProgressBar.BackColor = Color.Red;
+                    resultText.Text = $"{finalBMI:f2}  You are Obese!";
+                }
+
+
+            }
+            catch
+            {
+                ResetButtonClick();
+                resultText.Text = "Error Enter!!!";
             }
         }
 
