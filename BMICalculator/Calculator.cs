@@ -12,10 +12,18 @@ namespace BMICalculator
 {
     public partial class BMI : Form
     {
+
+        /// <summary>
+        /// Give a name for calculate
+        /// </summary>
         private float finalBMI;
 
-        public TextBox enterDatatoBox { get; set; }
+        public TextBox enterDatatoBox { get; set; }//Set text1 and text2 to clickdown event
         public string outputString { get; set; }
+
+
+
+
         public float heightValue { get; set; }
         public float weightValue { get; set; }
         public bool decimalExists { get; set; }
@@ -29,57 +37,44 @@ namespace BMICalculator
         }
 
 
-        /// <summary>
-        /// Reset button function
-        /// </summary>
-        public void reset()
-        {
-            
-            foreach (Control x in this.Controls)
-            {
-                if (x is TextBox)
-                {
-                    ((TextBox)x).Clear();
-                }
-            }
-
-            foreach (Control y in this.Controls)
-            {
-                if (y is CheckBox)
-                {
-                    ((CheckBox)y).Checked = false;
-                }
-            }
-        }
 
 
         /// <summary>
-        /// Tell user they choose Metric or Imperial
+        /// Tell user they choose Metric or Imperialn and units
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
 
         private void Imperial_CheckedChanged(object sender, EventArgs e)
         {
-            HeightUnit.Text = "Inches";
-            WeightUnit.Text = "Pounds";
+            HeightUnit.Text = "Inch";
+            WeightUnit.Text = "P";
         }
 
         private void Metric_CheckedChanged(object sender, EventArgs e)
         {
-            HeightUnit.Text = "Metres";
+            HeightUnit.Text = "M";
             WeightUnit.Text = "Kg";
         }
 
+
+
+        /// <summary>
+        /// give a event to number 0-9 and keyboard button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void KeyboardButtonClick(object sender, EventArgs e)
         {
-            try
+            try//if the user does not click down text 1 or 2, it will catch this mistake.
             {
                 Button TheButton = sender as Button;
                 var tag = TheButton.Tag.ToString();
 
                 int numericValue = 0;
                 bool numericResult = int.TryParse(tag, out numericValue);
+
+                //add 0-9 and decimal to text1 and 2
                 if (numericResult)
                 {
                     if (outputString == "0")
@@ -94,25 +89,25 @@ namespace BMICalculator
                 }
                 else
                 {
-                    switch (tag)
+                    switch (tag)//each click case with tag
                     {
-                        case "calculate":
+                        case "calculate"://calculate button in the event
                             CalculateButtonClick();
 
                             break;
 
-                        case "back":
+                        case "back":// back button in the event
                             BackButtonClick();
                             break;
 
 
 
-                        case "decimal":
+                        case "decimal":// decimal button in the event
                             DecimalButtonClick();
                             break;
 
 
-                        case "reset":
+                        case "reset":// reset button in the event
                             ResetButtonClick();
                             break;
                     }
@@ -126,7 +121,7 @@ namespace BMICalculator
 
             }
         }
-
+        // function for reset case.
         private void ResetButtonClick()
         {
             text1.Clear();
@@ -137,16 +132,16 @@ namespace BMICalculator
             weightValue = 0.0f;
             decimalExists = false;
         }
-
+        // function for decimal case.
         private void DecimalButtonClick()
         {
-            if (!decimalExists)
+            if (!decimalExists)// only input one decimal
             {
                 outputString += ".";
                 decimalExists = true;
             }
         }
-
+        // function for back case.
         private void BackButtonClick()
         {
             var lastChar = outputString.Substring(outputString.Length - 1);
@@ -159,16 +154,21 @@ namespace BMICalculator
             {
                 outputString = "0";
             }
-            enterDatatoBox.Text = outputString;
-        }
+            enterDatatoBox.Text = outputString;//when text1 click down it could be text1, when text2 click down  it could be text2
 
+        }
+        
         private void CalculateButtonClick()
         {
+
+            //catch wrong enter data type mistake
             try
             {
                 heightValue = float.Parse(text1.Text);
                 weightValue = float.Parse(text2.Text);
 
+
+                //the formular for calculate BMI(imperial//Metric)
                 if (Imperial.Checked)
                 {
                     finalBMI = weightValue * 703 / (heightValue * heightValue);
@@ -179,6 +179,7 @@ namespace BMICalculator
                     finalBMI = weightValue / (heightValue * heightValue);
                 }
                 ProgressBar.Value = (int)finalBMI;
+                //determine the statement for health.
                 if (finalBMI < 18.5)
                 {
 
@@ -203,20 +204,22 @@ namespace BMICalculator
 
 
             }
+
+            //clean wrong enter show the message in the result of text
             catch
             {
                 ResetButtonClick();
                 resultText.Text = "Error Enter!!!";
             }
         }
-
+        //set 2 texts to one value, when click down clear the text
         private void HeightDataMouseDown(object sender, MouseEventArgs e)
         {
             enterDatatoBox = text1;
             text1.Clear();
             outputString = "";
         }
-
+        //set 2 texts to one value, when click down clear the text
         private void WeightDataMouseDown(object sender, MouseEventArgs e)
         {
             enterDatatoBox = text2;

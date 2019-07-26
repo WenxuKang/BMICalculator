@@ -459,7 +459,7 @@
             // 
             this.ProgressBar.Location = new System.Drawing.Point(76, 170);
             this.ProgressBar.Name = "ProgressBar";
-            this.ProgressBar.Size = new System.Drawing.Size(202, 43);
+            this.ProgressBar.Size = new System.Drawing.Size(202, 45);
             this.ProgressBar.TabIndex = 5;
             // 
             // BMI
